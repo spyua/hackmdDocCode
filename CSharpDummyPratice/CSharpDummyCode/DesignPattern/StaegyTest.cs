@@ -1,6 +1,7 @@
 ﻿using DesignPattern.Strategy;
 using FluentAssertions;
 using NUnit.Framework;
+using static DesignPattern.Strategy.ComFacotry;
 
 namespace DesignPattern
 {
@@ -53,6 +54,16 @@ namespace DesignPattern
         {
 
             IStrategy usbCom = new UsbCom();
+            var cmd = usbCom.Write(Action);
+            cmd.Should().BeEquivalentTo(UsbWriteDone);
+            usbCom.Read().Should().Be(20);
+        }
+
+        [Test]
+        public void strategy_when_instance_usb_device_througt_factory_It_can_use_gpib_write_method()
+        {
+
+            var usbCom = ComFacotry.CreateCom(ComType.Usb);
             var cmd = usbCom.Write(Action);
             cmd.Should().BeEquivalentTo(UsbWriteDone);
             usbCom.Read().Should().Be(20);
