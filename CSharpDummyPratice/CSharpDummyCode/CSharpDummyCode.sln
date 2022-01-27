@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RxNetDummy", "RxNetDummy\Rx
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPattern", "DesignPattern\DesignPattern.csproj", "{A54E87AD-1CFF-4A58-94C8-4C5C2E27781F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DummyTestUnit", "DummyTestUnit\DummyTestUnit.csproj", "{9E362653-7CB5-40C0-9480-CDF2862B1818}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DummyTestUnit", "DummyTestUnit\DummyTestUnit.csproj", "{9E362653-7CB5-40C0-9480-CDF2862B1818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpinWaitDummy", "SpinWaitDummy\SpinWaitDummy.csproj", "{629016CD-E02B-441A-8AC7-ADE26218916B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9E362653-7CB5-40C0-9480-CDF2862B1818}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E362653-7CB5-40C0-9480-CDF2862B1818}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E362653-7CB5-40C0-9480-CDF2862B1818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{629016CD-E02B-441A-8AC7-ADE26218916B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{629016CD-E02B-441A-8AC7-ADE26218916B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{629016CD-E02B-441A-8AC7-ADE26218916B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{629016CD-E02B-441A-8AC7-ADE26218916B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
