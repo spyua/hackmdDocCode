@@ -29,21 +29,21 @@ namespace RxDummyForm
         /// </summary>
         private void InitializeComponent()
         {
-            this.SearchMeterTimeOut = new System.Windows.Forms.Button();
+            this.SearchMeterBtn = new System.Windows.Forms.Button();
             this.SearchLightSourceTimeOut = new System.Windows.Forms.Button();
             this.SearchBothDevice = new System.Windows.Forms.Button();
             this.SearchConcat = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // SearchMeterTimeOut
+            // SearchMeterBtn
             // 
-            this.SearchMeterTimeOut.Location = new System.Drawing.Point(40, 27);
-            this.SearchMeterTimeOut.Name = "SearchMeterTimeOut";
-            this.SearchMeterTimeOut.Size = new System.Drawing.Size(246, 23);
-            this.SearchMeterTimeOut.TabIndex = 0;
-            this.SearchMeterTimeOut.Text = "SearchMeterTimeOut";
-            this.SearchMeterTimeOut.UseVisualStyleBackColor = true;
-            this.SearchMeterTimeOut.Click += new System.EventHandler(this.SearchMeterTimeOut_Click);
+            this.SearchMeterBtn.Location = new System.Drawing.Point(40, 27);
+            this.SearchMeterBtn.Name = "SearchMeterBtn";
+            this.SearchMeterBtn.Size = new System.Drawing.Size(246, 23);
+            this.SearchMeterBtn.TabIndex = 0;
+            this.SearchMeterBtn.Text = "SearchMeter";
+            this.SearchMeterBtn.UseVisualStyleBackColor = true;
+            this.SearchMeterBtn.Click += new System.EventHandler(this.SearchMeterTimeOut_Click);
             // 
             // SearchLightSourceTimeOut
             // 
@@ -83,7 +83,7 @@ namespace RxDummyForm
             this.Controls.Add(this.SearchConcat);
             this.Controls.Add(this.SearchBothDevice);
             this.Controls.Add(this.SearchLightSourceTimeOut);
-            this.Controls.Add(this.SearchMeterTimeOut);
+            this.Controls.Add(this.SearchMeterBtn);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Shown += new System.EventHandler(this.Form1_Shown);
@@ -93,7 +93,7 @@ namespace RxDummyForm
 
         #endregion
 
-        private System.Windows.Forms.Button SearchMeterTimeOut;
+        private System.Windows.Forms.Button SearchMeterBtn;
         private System.Windows.Forms.Button SearchLightSourceTimeOut;
         private System.Windows.Forms.Button SearchBothDevice;
         private System.Windows.Forms.Button SearchConcat;

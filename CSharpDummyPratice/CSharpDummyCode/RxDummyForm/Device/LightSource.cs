@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reactive.Concurrency;
 using System.Reactive.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,9 +8,9 @@ namespace RxDummyForm.Device
     public class LightSource
     {
 
-        public IObservable<bool> ScanLightSource(int searchTime)
+        public IObservable<string> ScanLightSource(int searchTime)
         {
-            var ob = Observable.Create<bool>((obs) =>
+            var ob = Observable.Create<string>((obs) =>
             {
                 var task = SearchLightSourceDevice(searchTime);
 
@@ -34,15 +30,16 @@ namespace RxDummyForm.Device
             return ob;
         }
 
-        public async Task<bool> SearchLightSourceDevice(int searchTime)
+        public async Task<string> SearchLightSourceDevice(int searchTime)
         {
+            // 硬體操作實作，這邊以Delay先取代行為
             var task = Task.Run(() =>
             {
                 SpinWait.SpinUntil(() => false, searchTime);
             });
             if (await Task.WhenAny(task, Task.Delay(5000)) == task)
             {
-                return true;
+                return "Scan LightSource OK";
             }
             else
             {

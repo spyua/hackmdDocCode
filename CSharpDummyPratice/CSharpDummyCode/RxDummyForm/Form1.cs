@@ -17,37 +17,29 @@ namespace RxDummyForm
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            /*
-            var lightSource = new LightSource();
-            lightSource.ScanLightSource(5000)
-                        .SubscribeOn(Scheduler.Default)
-                        .ObserveOn(SynchronizationContext.Current)
-                        .Subscribe(
-                                x => {
-                                    MessageBox.Show(x.ToString()); 
-                                },
-                                ex =>
-                                {
-                                     MessageBox.Show(ex.Message.ToString());
-                                });
-            */
-
+     
         }
 
         private void SearchMeterTimeOut_Click(object sender, EventArgs e)
         {
             var meter = new PowerMeter();
 
-            meter.ScanMeterSource(5000)
+            meter.ScanMeterSource(3000)
                         .SubscribeOn(Scheduler.Default)
                         .ObserveOn(SynchronizationContext.Current)
                         .Subscribe(
-                                x => {
-                                    MessageBox.Show("Scan Meter-----"+x.ToString());
+                                nextMsg => {
+                                    // Next
+                                    MessageBox.Show(nextMsg);
                                 },
                                 ex =>
                                 {
-                                    MessageBox.Show(ex.Message.ToString());
+                                    // Expection
+                                    MessageBox.Show(ex.InnerException.Message.ToString());
+                                },
+                                ()=>{
+                                    // Finish
+                                    MessageBox.Show("Scan Finish");
                                 });
         }
 
@@ -55,16 +47,21 @@ namespace RxDummyForm
         {
             var lightSource = new LightSource();
 
-            lightSource.ScanLightSource(5000)
+            lightSource.ScanLightSource(10000)
                         .SubscribeOn(Scheduler.Default)
                         .ObserveOn(SynchronizationContext.Current)
                         .Subscribe(
-                                x => {
-                                    MessageBox.Show("Scan LightSource-----" + x.ToString());
+                                nextMsg => {
+                                    MessageBox.Show(nextMsg);
                                 },
                                 ex =>
                                 {
-                                    MessageBox.Show(ex.Message.ToString());
+                                    MessageBox.Show(ex.InnerException.Message.ToString());
+                                },
+                                ()=> {
+
+                                    // Finish
+                                    MessageBox.Show("Scan Finish");
                                 });
         }
 
@@ -75,18 +72,22 @@ namespace RxDummyForm
             var lightSource = new LightSource();
 
             Observable.Merge(
-              meter.ScanMeterSource(50000).SubscribeOn(Scheduler.Default),
-              lightSource.ScanLightSource(5000).SubscribeOn(Scheduler.Default)
+              meter.ScanMeterSource(4000).SubscribeOn(Scheduler.Default),
+              lightSource.ScanLightSource(4000).SubscribeOn(Scheduler.Default)
           )
           .ObserveOn(SynchronizationContext.Current)
           .Subscribe(
-                x => {
-                     MessageBox.Show("Scan OK" + x.ToString());
+                 nextMsg => {
+                     MessageBox.Show(nextMsg);
                  },
                  ex =>
                      {
                         MessageBox.Show(ex.InnerException.ToString());
-                   });
+                   },
+                  ()=>{
+                      // Finish
+                      MessageBox.Show("Scan Finish");
+                  });
             //.AddTo(Disposables);
         }
 
@@ -95,16 +96,21 @@ namespace RxDummyForm
             var meter = new PowerMeter();
             var lightSource = new LightSource();
 
-            meter.ScanMeterSource(5000)
-                .Concat(lightSource.ScanLightSource(5000))
+            meter.ScanMeterSource(3000)
+                .Concat(lightSource.ScanLightSource(3000))
                 .SubscribeOn(Scheduler.Default)
                 .ObserveOn(SynchronizationContext.Current).Subscribe(
-                    x => {
-                        MessageBox.Show("Scan OK" + x.ToString());
+                    nextMsg => {
+                        MessageBox.Show(nextMsg);
                     },
                     ex =>
                     {
                         MessageBox.Show(ex.InnerException.ToString());
+                    },
+                    ()=> {
+
+                        // Finish
+                        MessageBox.Show("Scan Finish");
                     });
                 }
     }
